@@ -39,15 +39,15 @@ namespace WpfApplication1.ViewModel
                                    Prix = product.Unit_Price
                                };
                     case 2:
-                        var today = DateTime.Today;
                         return from employee in _context.Employees
-                               let Age = today - employee.Birth_Date.Value
-                               where employee.Birth_Date.Value.Month == '1'
+                               let today = DateTime.Today.Year
+                               where employee.Birth_Date.HasValue && employee.Birth_Date.Value.Month == '1'
                                select new
                                {
                                    Prénom = employee.First_Name,
                                    Nom = employee.Last_Name,
-                                   Jour = employee.Birth_Date.Value.Day
+                                   Jour = employee.Birth_Date.Value.Day,
+                                   Age = today - employee.Birth_Date.Value.Year
                                };
                     default:
                         return new string[] { "(Not implemented filter)" };

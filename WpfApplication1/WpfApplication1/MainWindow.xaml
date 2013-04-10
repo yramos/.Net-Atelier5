@@ -4,6 +4,6 @@
         xmlns:my="clr-namespace:WpfApplication1.View"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <my:FilteredListView />
+        <my:FilteredListView x:Name="Vue1" />
     </Grid>
 </Window>

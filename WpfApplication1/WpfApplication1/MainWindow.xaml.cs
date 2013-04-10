@@ -24,7 +24,7 @@ namespace WpfApplication1
         {
             InitializeComponent();
             Model.EntrepriseEntities1 context = new Model.EntrepriseEntities1();
-
+            this.Vue1.DataContext = new ViewModel.FilteredListViewModel(context);
         }
     }
 }
